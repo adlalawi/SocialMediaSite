@@ -11,12 +11,12 @@ module.exports = {
     'twitterAuth' : {
         'consumerKey'       : 'BGj8ZfNUcfXHdHsFPu9OGdoXr',
         'consumerSecret'    : 'Iz5pPCo8w6z1rktDtmFKQSyVUaigMn79dAY690DD35e2Aqig7S',
-        'callbackURL'       : 'http://127.0.0.1:8080/auth/twitter/callback'
+        'callbackURL'       : 'http://localhost:8080/auth/twitter/callback'
     },
 
     'googleAuth' : {
-        'clientID'      : 'your-secret-clientID-here',
-        'clientSecret'  : 'your-client-secret-here',
+        'clientID'      : '905411933283-jo43ug1fggglc108p45qqm7adbjhnnkc.apps.googleusercontent.com',
+        'clientSecret'  : 'Cl9AuJIg5lUyxAZhhDk9PA0S',
         'callbackURL'   : 'http://localhost:8080/auth/google/callback'
     }
 
