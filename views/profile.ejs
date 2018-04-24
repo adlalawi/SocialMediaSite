@@ -62,13 +62,15 @@
         <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
+                <a href="/twitterPage" class="btn btn-info">Post</a>
 
                 <% if (user.twitter.token) { %>
                     <p>
                         <strong>id</strong>: <%= user.twitter.id %><br>
                         <strong>token</strong>: <%= user.twitter.token %><br>
+                        <strong>tokenSecret</strong>: <%= user.twitter.tokenSecret %><br>
                         <strong>display name</strong>: <%= user.twitter.displayName %><br>
-                        <strong>username</strong>: <%= user.twitter.username %>
+                        <strong>username</strong>: <%= user.twitter.username %><br>
                     </p>
 
                     <a href="/unlink/twitter" class="btn btn-info">Unlink</a>

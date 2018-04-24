@@ -20,6 +20,12 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
+	app.get('/twitterPage', isLoggedIn, function(req, res) {
+		res.render('twitterPage.ejs', {
+			user : req.user
+		});
+	});
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
@@ -169,6 +175,7 @@ module.exports = function(app, passport) {
 	app.get('/unlink/twitter', function(req, res) {
 		var user           = req.user;
 		user.twitter.token = undefined;
+		user.twitter.tokenSecret = undefined;
 		user.save(function(err) {
 			res.redirect('/profile');
 		});

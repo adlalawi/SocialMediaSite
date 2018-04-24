@@ -6,6 +6,7 @@ var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
 // load up the user model
 var User       = require('../app/models/user');
+var twitConfig       = require('../app/twitterConfig');
 
 // load the auth variables
 var configAuth = require('./auth'); // use this one for testing
@@ -224,8 +225,11 @@ module.exports = function(passport) {
                         // if there is a user id already but no token (user was linked at one point and then removed)
                         if (!user.twitter.token) {
                             user.twitter.token       = token;
+                            user.twitter.tokenSecret = tokenSecret;
                             user.twitter.username    = profile.username;
                             user.twitter.displayName = profile.displayName;
+                            user.twitter.url = "https://twitter.com/"+profile.username;
+
 
                             user.save(function(err) {
                                 if (err)
@@ -241,8 +245,10 @@ module.exports = function(passport) {
 
                         newUser.twitter.id          = profile.id;
                         newUser.twitter.token       = token;
+                        newUser.twitter.tokenSecret = tokenSecret;
                         newUser.twitter.username    = profile.username;
                         newUser.twitter.displayName = profile.displayName;
+                        newUser.twitter.url = "https://twitter.com/"+profile.username;
 
                         newUser.save(function(err) {
                             if (err)
@@ -258,8 +264,10 @@ module.exports = function(passport) {
 
                 user.twitter.id          = profile.id;
                 user.twitter.token       = token;
+                user.twitter.tokenSecret = tokenSecret;
                 user.twitter.username    = profile.username;
                 user.twitter.displayName = profile.displayName;
+                user.twitter.url = "https://twitter.com/"+profile.username;
 
                 user.save(function(err) {
                     if (err)
@@ -267,6 +275,7 @@ module.exports = function(passport) {
                     return done(null, user);
                 });
             }
+
 
         });
 
